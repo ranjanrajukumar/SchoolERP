@@ -13,6 +13,9 @@ namespace SchoolERP.Application.Interfaces.Utilities
         Task<User> Add(User user);
         Task<User> Update(User user);
         Task<bool> Delete(int id);
+
+        Task<User> GetByUserNameAsync(string userName);
+
     }
 
 }

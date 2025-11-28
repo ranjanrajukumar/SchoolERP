@@ -12,10 +12,12 @@ namespace SchoolERP.Application.Services.Utilities
     public class UserService : IUserService
     {
         private readonly IUserRepository _repo;
+        private readonly ITokenService _tokenService;
 
-        public UserService(IUserRepository repo)
+        public UserService(IUserRepository repo, ITokenService tokenService)
         {
             _repo = repo;
+            _tokenService = tokenService;
         }
 
         public async Task<IEnumerable<User>> GetAll()
@@ -67,5 +69,33 @@ namespace SchoolERP.Application.Services.Utilities
         {
             return await _repo.Delete(id);
         }
+
+
+
+
+        public async Task<LoginResponseDto?> AuthenticateAsync(LoginRequestDto loginDto)
+        {
+            var user = await _repo.GetByUserNameAsync(loginDto.UserName);
+
+            if (user == null || string.IsNullOrEmpty(user.Password) ||
+                !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
+            {
+                return null;
+            }
+
+            var token = _tokenService.GenerateToken(
+                user.UserId.ToString(),
+                user.Email ?? "",
+                user.UserType ?? ""   // "Admin", "Teacher", etc.
+            );
+
+            return new LoginResponseDto
+            {
+                Token = token,
+                Expiration = DateTime.UtcNow.AddMinutes(60)
+            };
+        }
+
+
     }
 }

@@ -63,5 +63,10 @@ namespace SchoolERP.Infrastructure.Repositories.Utilities
             return true;
         }
 
+        public async Task<User> GetByUserNameAsync(string userName)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+        }
+
     }
 }

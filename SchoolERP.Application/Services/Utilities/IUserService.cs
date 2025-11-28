@@ -9,11 +9,6 @@ namespace SchoolERP.Application.Services.Utilities
 
     public interface IUserService
     {
-        Task<IEnumerable<User>> GetAll();
-        Task<User?> GetById(int id);
-        Task<User> Create(UserDto dto);
-        Task<User?> Update(int id, UserDto dto);
-        Task<bool> Delete(int id);
     }
 
 }
