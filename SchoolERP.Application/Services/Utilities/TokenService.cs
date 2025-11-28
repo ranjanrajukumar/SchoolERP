@@ -11,11 +11,7 @@ public class TokenService : ITokenService
     private readonly string _audience;
     private readonly double _expiryMinutes;
 
-    public TokenService(
-        string secretKey,
-        string issuer,
-        string audience,
-        double expiryMinutes)
+    public TokenService(string secretKey, string issuer, string audience, double expiryMinutes)
     {
         _secretKey = secretKey;
         _issuer = issuer;

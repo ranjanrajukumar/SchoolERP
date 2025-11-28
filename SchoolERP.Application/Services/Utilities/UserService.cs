@@ -35,7 +35,7 @@ namespace SchoolERP.Application.Services.Utilities
             var user = new User
             {
                 UserName = dto.UserName,
-                Password = dto.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),  // FIXED ❗//dto.Password,
                 Email = dto.Email,
                 FullName = dto.FullName,
                 MobileNo = dto.MobileNo,
