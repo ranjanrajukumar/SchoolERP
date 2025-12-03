@@ -38,5 +38,9 @@ namespace SchoolERP.Domain.Entities.Utilities
         public DateTime? EditOnDt { get; set; }
         public DateTime? DelOnDt { get; set; }
         public int? DelStatus { get; set; }
+
+        public string? ResetToken { get; set; }
+        public DateTime? ResetTokenExpire { get; set; }
+
     }
 }

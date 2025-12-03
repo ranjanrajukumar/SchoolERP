@@ -15,6 +15,7 @@ namespace SchoolERP.Application.Interfaces.Utilities
         Task<User?> Update(int id, UserDto dto);
         Task<bool> Delete(int id);
         Task<LoginResponseDto> AuthenticateAsync(LoginRequestDto loginDto);
+
     }
 
 }

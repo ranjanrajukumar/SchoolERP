@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SchoolERP.Application\SchoolERP.Application.csproj" />
+    <ProjectReference Include="..\SchoolERP.Domain\SchoolERP.Domain.csproj" />
     <ProjectReference Include="..\SchoolERP.Infrastructure\SchoolERP.Infrastructure.csproj" />
     <ProjectReference Include="..\SchoolERP.Core\SchoolERP.Core.csproj" />
   </ItemGroup>

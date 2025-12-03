@@ -68,5 +68,22 @@ namespace SchoolERP.Infrastructure.Repositories.Utilities
             return await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
         }
 
+
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<User?> GetUserByTokenAsync(string email, string token)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == email && u.ResetToken == token);
+        }
+
+        public async Task UpdateAsync(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolERP.Application", "SchoolERP.Application\SchoolERP.Application.csproj", "{BE55341F-D5A4-474D-A5E7-FCF9A585CD69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolERP.Domain", "SchoolERP.Domain\SchoolERP.Domain.csproj", "{846F54D2-4B85-4BD7-9E8C-D23441B1F193}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5E4F3E3D-F509-4591-88DF-ACA78238A4D6} = {5E4F3E3D-F509-4591-88DF-ACA78238A4D6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolERP.Infrastructure", "SchoolERP.Infrastructure\SchoolERP.Infrastructure.csproj", "{A6BA2A96-22E7-4B33-8984-ED199CD017FF}"
 EndProject

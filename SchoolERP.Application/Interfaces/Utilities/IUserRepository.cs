@@ -16,6 +16,11 @@ namespace SchoolERP.Application.Interfaces.Utilities
 
         Task<User> GetByUserNameAsync(string userName);
 
+
+        Task<User?> GetUserByEmailAsync(string email);
+        Task<User?> GetUserByTokenAsync(string email, string token);
+        Task UpdateAsync(User user);
+
     }
 
 }
